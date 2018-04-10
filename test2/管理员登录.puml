@@ -1,0 +1,16 @@
+@startuml
+|管理员|
+start
+repeat
+:输入账号;
+:输入密码;
+	|系统|
+	:判断账号密码正确;
+repeat while (登录成功?)
+
+:返回管理员主页;
+|管理员|
+:进入管理员主页;
+
+stop
+@enduml
