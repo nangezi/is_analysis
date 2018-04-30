@@ -1,0 +1,32 @@
+
+@startuml
+actor 读者
+boundary 账号判断
+control 业务控制
+database 数据库
+
+
+autonumber
+activate 读者
+activate 账号判断
+读者 -> 账号判断:输入读者账号信息
+activate 业务控制
+账号判断 -> 业务控制 : 获取账号信息
+
+activate 数据库
+业务控制 -> 数据库 : 比对账号密码合法性
+数据库 --> 业务控制 : 账号合法或者不合法
+业务控制 --> 账号判断 : 返回操作结果
+账号判断 --> 读者 : 返回账号判断结果
+deactivate 账号判断
+opt 读者账号合法
+读者 -> 业务控制 : 输入预定的图书信息
+业务控制 -> 数据库 : 增加预定信息
+数据库 --> 业务控制 : 返回操作结果
+deactivate 数据库
+
+业务控制 --> 读者 : 返回预定结果
+deactivate 业务控制
+deactivate 读者
+end
+@enduml
