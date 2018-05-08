@@ -61,7 +61,7 @@
 1. 添加图书
 
 - 功能：用于添加新图书
-- 请求地址： http://localhost:8080/LibrarySystem/book/insert
+- 请求地址： http://localhost:8080/BookManageSystem/book/insert
 - 请求方法：POST
 - 请求参数：Book(JavaBean)
 
