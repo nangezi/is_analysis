@@ -1,0 +1,25 @@
+@startuml
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+skinparam titleBorderColor #Black
+skinparam titleFontSize 24
+Title 显示本课程学生列表流程图
+
+
+actor 老师显示学生列表主页面
+actor API服务
+database 数据库存储
+
+== 老师主页面 ==
+老师显示学生列表主页面->API服务:传入课程表中的term和teacher_id
+API服务->数据库存储:访问courses表中是否有对应学期值该老师任课的course_name
+数据库存储->数据库存储:根据course表对应的term和teacher_id\n中查找所有课程
+API服务->老师显示学生列表主页面:返回查询出的course_name在下拉列表中
+老师显示学生列表主页面->API服务:传入一个course_name
+API服务->数据库存储:访问c_grades得出所有学生的信息
+数据库存储->数据库存储:根据c_grades表对应的student_id查询\nstudents表中的信息和c_grades中学生\n课程成绩的所有信息
+数据库存储->API服务:返回所有查询到的信息
+API服务->老师显示学生列表主页面:返回学生列表
+== 老师登录后都需先选学期和课程==
+
+@enduml

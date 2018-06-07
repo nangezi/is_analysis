@@ -1,0 +1,9 @@
+@startuml
+title 基于GitHub的实验管理平台--评定某学生成绩的顺序图
+actor teachers
+teachers -> course: 找到该课程
+course -> tests:找到该课程所有实验的编号
+tests -> t_scores: 给出每个评分点成绩和总成绩和评语
+t_scores -> c_scores: 实验成绩得到后得到暂时该课程的成绩
+
+@enduml

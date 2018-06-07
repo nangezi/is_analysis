@@ -1,0 +1,21 @@
+@startuml
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+skinparam titleBorderColor #Black
+skinparam titleFontSize 24
+Title 实验修改流程图
+
+
+actor 修改实验页面
+actor API服务
+database 数据库存储
+
+== 修改实验页面 ==
+修改实验页面->API服务:传入老师新增加后的全部实验的全部信息
+API服务->API服务:将传入的实验信息整理
+API服务->数据库存储:将实验信息存入对应的数据库表中
+数据库存储->API服务:返回存储结果
+API服务->修改实验页面:返回响应信息
+== 老师登录后选择学期课程==
+
+@enduml

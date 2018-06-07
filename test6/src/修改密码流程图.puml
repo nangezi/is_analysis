@@ -1,0 +1,26 @@
+@startuml
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+skinparam titleBorderColor #Black
+skinparam titleFontSize 24
+Title 修改密码流程图
+
+actor 修改密码页面
+actor API服务
+database 数据库存储
+
+== 修改密码页面 ==
+修改密码页面->API服务:输入两次新的密码
+修改密码页面->修改密码页面:用javascript确认两次输入的密码是否相同
+alt 如果相同
+    API服务->数据库存储:根据user_id更新users.password的值
+    数据库存储->API服务:返回信息
+    API服务->修改密码页面:修改成功关闭页面
+else 如果不同
+    修改密码页面->修改密码页面:2.不同则在页面提示密码不同
+
+end
+
+====
+
+@enduml

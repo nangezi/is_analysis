@@ -1,0 +1,23 @@
+@startuml
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+skinparam titleBorderColor #Black
+skinparam titleFontSize 24
+Title 评定某学生成绩流程图
+
+
+actor 老师评定学生成绩页面
+actor API服务
+database 数据库存储
+
+== 老师评定学生成绩页面 ==
+老师评定学生成绩页面->API服务:传入老师评定或修改后的成绩信息
+API服务->API服务:将传入的成绩信息整理
+API服务->数据库存储:将成绩存入对应的t_grades表中
+数据库存储->API服务:返回存储或修改结果
+API服务->数据库存储:将实验成绩存入对应的c_grades表中
+数据库存储->API服务:返回存储或修改结果
+API服务->老师评定学生成绩页面:返回响应信息
+== 老师登录后都要先选择学期课程==
+
+@enduml

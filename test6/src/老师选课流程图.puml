@@ -1,0 +1,26 @@
+@startuml
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+skinparam titleBorderColor #Black
+skinparam titleFontSize 24
+Title 老师选课流程图
+
+
+actor 老师选课页面
+actor API服务
+database 数据库存储
+
+== 老师选课页面 ==
+老师选课页面->API服务:传入term值
+API服务->数据库存储:在course表中查找课程信息
+数据库存储->数据库存储:查询
+数据库存储->API服务:返回所有课程信息
+API服务->API服务:整理信息
+API服务->老师选课页面:返回课程列表
+老师选课页面->API服务:传入选择的课程的course_name值
+API服务->数据库存储:在course表中查询到该课程\n并在course.teacher_id存值
+数据库存储->API服务:返回存储结果
+API服务->老师选课页面:返回响应信息
+== 老师登录后都要先选择学期课程==
+
+@enduml

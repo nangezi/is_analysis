@@ -1,0 +1,26 @@
+@startuml
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+skinparam titleBorderColor #Black
+skinparam titleFontSize 24
+Title 学生选课流程图
+
+
+actor 学生选课页面
+actor API服务
+database 数据库存储
+
+== 学生选课页面 ==
+学生选课页面->API服务:传入课程学期term
+API服务->数据库存储:根据term查询到course_name和course_num
+数据库存储->数据库存储:查询
+数据库存储->API服务:返回课程的所有信息
+API服务->API服务: 判断course_num的值是否为0，\n为0则该课程不可选整理课程信息
+API服务->学生选课页面:返回课程信息列表
+学生选课页面->API服务:传入course_name和student_id
+API服务->数据库存储:在表c_grades增加一条学生成绩记录\n并将course.course_num的值-1
+数据库存储->API服务:返回存储信息
+API服务->学生选课页面:返回响应信息
+==学生登录后一定要选择学期 ==
+
+@enduml

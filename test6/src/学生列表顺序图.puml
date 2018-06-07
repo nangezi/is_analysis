@@ -1,0 +1,8 @@
+@startuml
+title 基于GitHub的实验管理平台--学生列表用例的顺序图
+actor teachers
+teachers -> course:查看该课程
+course -> c_grades: 查询到选择该门课的学生的成绩
+c_grades--> teachers:每个学生的信息、及每个实验的总成绩
+
+@enduml

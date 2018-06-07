@@ -1,0 +1,19 @@
+@startuml
+skinparam titleBorderRoundCorner 15
+skinparam titleBorderThickness 2
+skinparam titleBorderColor #Black
+skinparam titleFontSize 24
+Title 修改用户流程图
+
+actor 修改用户信息页面
+actor API服务
+database 数据库存储
+
+== 修改用户信息页面 ==
+修改用户信息页面->API服务:输入新的GitHub用户名
+API服务->数据库存储:将新的GitHub用户名存入表
+数据库存储->API服务:返回信息
+API服务->修改用户信息页面:修改成功关闭页面
+====
+
+@enduml
