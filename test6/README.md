@@ -34,7 +34,7 @@
 ## 5. 数据库设计
 - ### [参见数据库设计](./数据库设计.md)
 
-## 6. 用例及界面详细设计
+## 6. 用例及界面详细设计2
 - ### [“学生列表”用例](./用例/学生列表.md),[界面](https://nangezi.github.io/is_analysis/test6/ui/学生列表.html)
 - ### [“评定成绩”用例](./用例/评定成绩.md),[界面](https://nangezi.github.io/is_analysis/test6/ui/评定成绩.html)
 - ### [“学生查看成绩”用例](./用例/学生查看成绩.md),[界面](https://nangezi.github.io/is_analysis/test6/ui/学生查看成绩.html)
